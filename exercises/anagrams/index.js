@@ -10,7 +10,6 @@
 
 function anagrams(stringA, stringB) {
   // Quick solution Sort and compare
-
   //clean strings and sort
   cleanAndSort = string => {
     return string
