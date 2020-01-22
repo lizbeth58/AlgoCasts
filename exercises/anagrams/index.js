@@ -9,6 +9,51 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
+  // Quick solution Sort and compare
+
+  //clean strings and sort
+  cleanAndSort = string => {
+    return string
+      .replace(/[^\w]/g, '')
+      .toLowerCase()
+      .split('')
+      .sort()
+      .join('');
+  };
+
+  return cleanAndSort(stringA) === cleanAndSort(stringB);
+
+  /* Solution using objects
+  //function to make a map from a string
+  buildCharMap = string => {
+    //create new object
+    const map = {};
+
+    //clean string and make all lowercase, loop
+    for (let char of string.replace(/[^\w]/g, '').toLowerCase()) {
+      //Add KEY = Get KEY (if key exists + 1) if not set to 1
+      map[char] = map[char] + 1 || 1;
+    }
+    return map;
+  };
+
+  const aMap = buildCharMap(stringA);
+  const bMap = buildCharMap(stringB);
+
+  if (Object.keys(aMap).length !== Object.keys(bMap).length) {
+    return false;
+  }
+
+  for (let char in aMap) {
+    if (aMap[char] !== bMap[char]) {
+      return false;
+    }
+  }
+
+  return true;
+  */
+
+  /* Solution using Maps
   // function to make a map from a string
   makeMap = string => {
     // create a new map
@@ -73,6 +118,7 @@ function anagrams(stringA, stringB) {
   const characterMapB = makeMap(stringB);
   // compare maps
   return compareMaps(characterMapA, characterMapB);
+  */
 }
 
 module.exports = anagrams;
