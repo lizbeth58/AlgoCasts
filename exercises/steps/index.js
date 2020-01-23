@@ -22,11 +22,11 @@ function steps(n) {
   let str = '';
 
   //iterate from 0 to N for both loops
-  for (let i = 0; i < n; i++) {
+  for (let row = 0; row < n; row++) {
     //this loops will move the printer vertically
-    for (let j = 0; j < n; j++) {
+    for (let col = 0; col < n; col++) {
       //this loop will move the printer horizontally
-      if (j <= i) {
+      if (col <= row) {
         //print # horizontally for the number of the steps we are in vertically
         str += '#';
       } else {
